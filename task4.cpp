@@ -1,4 +1,4 @@
-#include <iostream>
+
 int main() {
     constexpr auto factorial = [](int n) constexpr{
         auto constexpr _factorial = [] (auto&& self, int n) constexpr -> int{
@@ -6,6 +6,6 @@ int main() {
         };
         return _factorial(_factorial,n);
     };
-    std::cout << factorial(5);
+    static_assert(factorial(5) == 120);
 }
 
